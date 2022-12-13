@@ -29,7 +29,10 @@ fun HomeScreen(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        item { HomeScreenItem(text = "Lists") {} }
+        item { HomeScreenItem(text = "Lists") {
+            // handle what should happen when this is clicked
+
+        } }
         item { HomeScreenItem(text = "Borders") {} }
         item { HomeScreenItem(text = "ArcProgress") {} }
         item { HomeScreenItem(text = "ColumnRows") {} }
