@@ -29,51 +29,16 @@ fun HomeScreen(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        item {
-            HomeScreenItem(text = "Lists") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "Borders") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "ArcProgress") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "ColumnRows") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "ConstraintLayout") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "SimpleUI") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "State") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "TextFieldSnackbar") {
-
-            }
-        }
-        item {
-            HomeScreenItem(text = "TextStyle") {
-
-            }
-        }
+        item { HomeScreenItem(text = "Lists") {} }
+        item { HomeScreenItem(text = "Borders") {} }
+        item { HomeScreenItem(text = "ArcProgress") {} }
+        item { HomeScreenItem(text = "ColumnRows") {} }
+        item { HomeScreenItem(text = "ConstraintLayout") {} }
+        item { HomeScreenItem(text = "SimpleUI") {} }
+        item { HomeScreenItem(text = "State") {} }
+        item { HomeScreenItem(text = "TextFieldSnackbar") {} }
+        item { HomeScreenItem(text = "TextStyle") {} }
+        item { HomeScreenItem(text = "TextStyle") {} }
     }
 }
 
