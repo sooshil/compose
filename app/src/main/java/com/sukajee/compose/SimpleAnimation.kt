@@ -1,7 +1,7 @@
 package com.sukajee.compose
 
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.tween
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -18,15 +18,34 @@ fun SimpleAnimation() {
     var sizeState by remember { mutableStateOf(200.dp) }
     val size by animateDpAsState(
         targetValue = sizeState,
-        animationSpec = tween(
+        animationSpec = tween( /** can change animation type as we want. */
             durationMillis = 1000,
-            delayMillis = 100
+            delayMillis = 100,
+            easing = FastOutLinearInEasing
+        ),
+//        animationSpec = keyframes {
+//            durationMillis = 5000
+//            sizeState at 0 with LinearEasing
+//            sizeState * 1.5f at 1000 with FastOutLinearInEasing
+//            sizeState * 2f at 5000
+//        }
+    )
+
+    /** For infinite animation */
+    val infiniteTransition = rememberInfiniteTransition()
+    val color by infiniteTransition.animateColor(
+        initialValue = Color.Red,
+        targetValue = Color.Green,
+        animationSpec = infiniteRepeatable(
+            tween(durationMillis = 2000),
+            repeatMode = RepeatMode.Reverse
         )
     )
+
     Box(
         modifier = Modifier
             .size(size)
-            .background(Color.Green)
+            .background(/* Color.GREEN */ color)
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
