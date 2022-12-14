@@ -37,7 +37,7 @@ fun SimpleAnimation() {
         initialValue = Color.Red,
         targetValue = Color.Green,
         animationSpec = infiniteRepeatable(
-            tween(durationMillis = 2000),
+            tween(durationMillis = 5000),
             repeatMode = RepeatMode.Reverse
         )
     )
