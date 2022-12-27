@@ -25,6 +25,7 @@ import kotlinx.coroutines.delay
 fun CircularProgressBar(
     currentValue: Float,
     fullValue: Float,
+    modifier: Modifier = Modifier,
     fontSize: TextUnit = 28.sp,
     radius: Dp = 50.dp,
     color: Color = Color.Green,
@@ -50,10 +51,10 @@ fun CircularProgressBar(
     }
 
     Box(
-        modifier = Modifier.size(radius * 2f),
+        modifier = modifier.size(radius * 2f),
         contentAlignment = Alignment.Center
     ) {
-        Canvas(modifier = Modifier.size(radius * 2f)) {
+        Canvas(modifier = modifier.size(radius * 2f)) {
             drawArc(
                 color = color,
                 startAngle = -90f,

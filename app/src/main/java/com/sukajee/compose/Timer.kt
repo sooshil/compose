@@ -16,7 +16,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PointMode
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.font.FontWeight
@@ -29,11 +28,10 @@ import kotlinx.coroutines.delay
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
-import kotlin.math.sinh
 
 @Composable
 fun Timer(
-    totalTime: Long,
+    totalTimeInMillis: Long,
     modifier: Modifier = Modifier,
     handleColor: Color = Color(0xFF00C900),
     inactiveBarColor: Color = Color.Gray,
@@ -41,6 +39,19 @@ fun Timer(
     initialValue: Float = 1f,
     strokeWidth: Dp = 15.dp
 ) {
+
+
+    /**
+     *
+     * This timer doesn't tick on 1 seconds. if we compare with other timer,
+     * this timer seems to be running slow.
+     *
+     * Not sure what should be fixed to get it worked correctly.
+     *
+     * */
+
+
+
     var size by remember {
         mutableStateOf(IntSize.Zero)
     }
@@ -50,7 +61,7 @@ fun Timer(
     }
 
     var currentTime by remember {
-        mutableStateOf(totalTime)
+        mutableStateOf(totalTimeInMillis)
     }
 
     var isTimerRunning by remember {
@@ -61,7 +72,7 @@ fun Timer(
         if(currentTime > 0 && isTimerRunning) {
             delay(100L)
             currentTime -= 100L
-            value = currentTime / totalTime.toFloat()
+            value = currentTime / totalTimeInMillis.toFloat()
         }
     }
 
@@ -125,7 +136,7 @@ fun Timer(
             ),
             onClick = {
                 if(currentTime <= 0L) {
-                    currentTime = totalTime
+                    currentTime = totalTimeInMillis
                     isTimerRunning = true
                 } else isTimerRunning = !isTimerRunning
             }
